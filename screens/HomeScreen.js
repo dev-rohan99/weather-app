@@ -1,8 +1,8 @@
-import { View, Text, Image, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Image, SafeAreaView, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import React, { useLayoutEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { theme } from '../theme/theme';
-import { MagnifyingGlassIcon, MapPinIcon } from "react-native-heroicons/outline";
+import { CalendarDaysIcon, MagnifyingGlassIcon, MapPinIcon } from "react-native-heroicons/outline";
 
 
 const HomeScreen = () => {
@@ -19,7 +19,7 @@ const HomeScreen = () => {
 
     return (
         <View className="flex-1 relative">
-            <Image blurRadius={10} className="absolute h-full w-full" source={require("../assets/images/background.jpg")}/>
+            <Image blurRadius={50} className="absolute h-full w-full" source={require("../assets/images/background.jpg")}/>
             <SafeAreaView className="flex flex-1 relative">
                 <View style={{height:"7%"}} className="mx-4 z-30 relative mt-12">
                     <View className="relative flex-row justify-end items-center rounded-full" style={{backgroundColor: showSearch ? theme.bgWhite(0.2) : "transparent"}}>
@@ -52,6 +52,82 @@ const HomeScreen = () => {
                                 </View>
                             ) : null
                         }
+                    </View>
+                </View>
+
+                <View className="mx-4 flex flex-1 justify-around mb-2">
+                    <Text className="text-center text-white font-bold text-xl">
+                        Narail, Dhaka,
+                        <Text className="text-center text-gray-300 font-semibold text-lg"> Bangladesh</Text>
+                    </Text>
+
+                    <View className="flex-row justify-center">
+                        <Image source={require("../assets/images/weather.png")} className="w-52 h-52" />
+                    </View>
+
+                    <View className="space-y-2">
+                        <Text className="text-white text-7xl text-center font-semibold ml-5">23&#176;</Text>
+                        <Text className="text-white text-xl text-center tracking-widest">Partly Cloudy</Text>
+                    </View>
+
+                    <View className="flex-row justify-between mx-4">
+                        
+                        <View className="flex-row space-x-2 items-center">
+                            <Image source={require("../assets/images/wind.png")} className="h-6 w-6"/>
+                            <Text className="text-white font-semibold text-base">33km</Text>
+                        </View>
+
+                        <View className="flex-row space-x-2 items-center">
+                            <Image source={require("../assets/images/drop.png")} className="h-6 w-6"/>
+                            <Text className="text-white font-semibold text-base">33%</Text>
+                        </View>
+
+                        <View className="flex-row space-x-2 items-center">
+                            <Image source={require("../assets/images/sun.png")} className="h-6 w-6"/>
+                            <Text className="text-white font-semibold text-base">6:10 AM</Text>
+                        </View>
+
+                    </View>
+
+                    <View className="mb-2 space-y-3">
+                        <View className="flex-row mx-5 items-center space-x-2">
+                            <CalendarDaysIcon size={25} color="white"/>
+                            <Text className="text-white font-normal text-base">Daily forecast</Text>
+                        </View>
+
+                        <ScrollView horizontal contentContainerStyle={{paddingHorizontal:15}} showsHorizontalScrollIndicator={false}>
+
+                            <View className={`flex justify-center items-center rounded-3xl py-4 space-y-1 mr-4 w-24`} style={{backgroundColor: theme.bgWhite(0.2)}}>
+                                <Image source={require("../assets/images/havyrain.png")} className="w-11 h-11" />
+                                <Text className="text-white">Monday</Text>
+                                <Text className="text-white text-md text-center font-semibold">23&#176;</Text>
+                            </View>
+
+                            <View className={`flex justify-center items-center rounded-3xl py-4 space-y-1 mr-4 w-24`} style={{backgroundColor: theme.bgWhite(0.2)}}>
+                                <Image source={require("../assets/images/havyrain.png")} className="w-11 h-11" />
+                                <Text className="text-white">Monday</Text>
+                                <Text className="text-white text-md text-center font-semibold">23&#176;</Text>
+                            </View>
+
+                            <View className={`flex justify-center items-center rounded-3xl py-4 space-y-1 mr-4 w-24`} style={{backgroundColor: theme.bgWhite(0.2)}}>
+                                <Image source={require("../assets/images/havyrain.png")} className="w-11 h-11" />
+                                <Text className="text-white">Monday</Text>
+                                <Text className="text-white text-md text-center font-semibold">23&#176;</Text>
+                            </View>
+
+                            <View className={`flex justify-center items-center rounded-3xl py-4 space-y-1 mr-4 w-24`} style={{backgroundColor: theme.bgWhite(0.2)}}>
+                                <Image source={require("../assets/images/havyrain.png")} className="w-11 h-11" />
+                                <Text className="text-white">Monday</Text>
+                                <Text className="text-white text-md text-center font-semibold">23&#176;</Text>
+                            </View>
+
+                            <View className={`flex justify-center items-center rounded-3xl py-4 space-y-1 w-24`} style={{backgroundColor: theme.bgWhite(0.2)}}>
+                                <Image source={require("../assets/images/havyrain.png")} className="w-11 h-11" />
+                                <Text className="text-white">Monday</Text>
+                                <Text className="text-white text-md text-center font-semibold">23&#176;</Text>
+                            </View>
+                            
+                        </ScrollView>
                     </View>
                 </View>
             </SafeAreaView>
